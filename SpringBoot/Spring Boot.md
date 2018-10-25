@@ -4150,6 +4150,176 @@ public class HelloServiceAutoConfiguration {
 
 ```
 
+
+
+## 8.1、创建空工程
+
+![image-20181024222658550](images/image-20181024222658550.png)
+
+![image-20181024222733140](images/image-20181024222733140.png)
+
+## 8.2、添加module
+
+![image-20181024222810684](images/image-20181024222810684.png)
+
+## 8.3、创建starter启动器(Maven工程)
+
+![image-20181024222913261](images/image-20181024222913261.png)
+
+![image-20181024223008672](images/image-20181024223008672.png)
+
+***此工程就是一个启动器，只做导入和依赖***
+
+![image-20181024223118499](images/image-20181024223118499.png)
+
+![image-20181024223150644](images/image-20181024223150644.png)
+
+## 8.4、创建autoConfiguration初始化器(SpringBoot工程)
+
+![image-20181024223234468](images/image-20181024223234468.png)
+
+![image-20181024223323152](images/image-20181024223323152.png)
+
+***做自动配置的，不引入任何模块***
+
+![image-20181024223411840](images/image-20181024223411840.png)
+
+![image-20181024223526315](images/image-20181024223526315.png)
+
+![image-20181024223547913](images/image-20181024223547913.png)
+
+![image-20181024223609769](images/image-20181024223609769.png)
+
+## 8.5、配置starter启动器
+
+`只做依赖和导入`
+
+### 8.5.1、引入autoConfiguration初始化器
+
+![image-20181024223736384](images/image-20181024223736384.png)
+
+![image-20181024224058054](images/image-20181024224058054.png)
+
+## 8.6、配置autoConfiguration初始化器
+
+### 8.6.1、删除多余文件以及目录
+
+![image-20181024224244719](images/image-20181024224244719.png)
+
+![image-20181024224309719](images/image-20181024224309719.png)
+
+**删除配置文件以及启动类**
+
+### 8.6.2、POM只保留spring-boot-starter
+
+![image-20181024224424241](images/image-20181024224424241.png)
+
+所有的starter都必须引入spring-boot-starter
+
+![image-20181024224546093](images/image-20181024224546093.png)
+
+## 8.7、添加提供的服务
+
+![image-20181024224714624](images/image-20181024224714624.png)
+
+## 8.8、添加服务配置信息
+
+![image-20181024224816697](images/image-20181024224816697.png)
+
+**并绑定主配置文件中以atguigu.hello为前缀的配置信息**
+
+![image-20181024224943216](images/image-20181024224943216.png)
+
+## 8.9、服务调用配置信息
+
+![image-20181024225035000](images/image-20181024225035000.png)
+
+![image-20181024225348230](images/image-20181024225348230.png)
+
+> 为配置信息设置setter、getter方法
+
+## 8.10、自动配置类
+
+![image-20181024225147992](images/image-20181024225147992.png)
+
+**这是一个配置类**
+
+### 8.10.1、设置web应用才生效
+
+![image-20181024225525328](images/image-20181024225525328.png)
+
+### 8.10.2、将property配置加载到IOC容器(EnableConfigurationProperties)
+
+![image-20181024225637770](images/image-20181024225637770.png)
+
+
+
+### 8.10.3、将服务注入IOC容器
+
+![image-20181024225725827](images/image-20181024225725827.png)
+
+**将HelloService加入到IOC容器后，其他应用就可以使用了**
+
+## 8.11、配置spring.factories
+
+![image-20181024230031695](images/image-20181024230031695.png)
+
+**创建spring.factories配置文件**
+
+![image-20181024230120322](images/image-20181024230120322.png)
+
+配置系统启动时加载的类
+
+## 8.12、将starter、autoConfiguration安装到仓库
+
+![image-20181024230256836](images/image-20181024230256836.png)
+
+注意删掉测试文件夹，因为测试模块已经删除了
+
+![image-20181024230354705](images/image-20181024230354705.png)
+
+## 8.13、测试
+
+### 8.13.1、创建测试工程
+
+![image-20181024230441371](images/image-20181024230441371.png)
+
+![image-20181024230505240](images/image-20181024230505240.png)
+
+![image-20181024230522488](images/image-20181024230522488.png)
+
+因为在autoConfiguration中配置了在web环境才加载Service，所以这里创建web工程。
+
+![image-20181024230634906](images/image-20181024230634906.png)
+
+### 8.13.2、引入自定义starter
+
+![image-20181024230723191](images/image-20181024230723191.png)
+
+### 8.13.3、创建测试类
+
+![image-20181024230910900](images/image-20181024230910900.png)
+
+### 8.13.4、配置信息
+
+![image-20181024230956139](images/image-20181024230956139.png)
+
+### 8.13.5、测试
+
+
+
+![image-20181024231116830](images/image-20181024231116830.png)
+
+
+
+
+
+
+
+
+
+
+
 # 更多SpringBoot整合示例
 
 https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples
