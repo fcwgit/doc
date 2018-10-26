@@ -2425,7 +2425,7 @@ insert的公共片段在div标签中
 
 默认效果：
 
-​		1）、浏览器，返回一个默认的错误页面
+​		1）、访问不存在的页面，SpringBoot返回一个默认的错误页面
 
 ![](images/搜狗截图20180226173408.png)
 
@@ -2442,6 +2442,10 @@ insert的公共片段在div标签中
 原理：
 
 ​	可以参照ErrorMvcAutoConfiguration；错误处理的自动配置；
+
+![image-20181025201146452](images/image-20181025201146452.png)
+
+​	![image-20181025200916262](images/image-20181025200916262.png)
 
   	给容器中添加了以下组件
 
@@ -2461,9 +2465,11 @@ insert的公共片段在div标签中
 	}
 ```
 
-
-
 ​	2、BasicErrorController：处理默认/error请求
+
+> @RequestMapping("${server.error.path:${error.path:/error}}")
+>
+> errorController处理上述异常
 
 ```java
 @Controller
@@ -2502,7 +2508,9 @@ public class BasicErrorController extends AbstractErrorController {
 	private String path = "/error";  系统出现错误以后来到error请求进行处理；（web.xml注册的错误页面规则）
 ```
 
+![image-20181025202311124](images/image-20181025202311124.png)
 
+在IOC容器中注册异常处理 "/error"(默认情况)
 
 ​	4、DefaultErrorViewResolver：
 
@@ -2518,7 +2526,7 @@ public class BasicErrorController extends AbstractErrorController {
 	}
 
 	private ModelAndView resolve(String viewName, Map<String, Object> model) {
-        //默认SpringBoot可以去找到一个页面？  error/404
+        //默认SpringBoot可以去找到一个页面  error/状态码（例如：404）
 		String errorViewName = "error/" + viewName;
         
         //模板引擎可以解析这个页面地址就用模板引擎解析
@@ -2581,7 +2589,7 @@ protected ModelAndView resolveErrorView(HttpServletRequest request,
 
 ​			3）、以上都没有错误页面，就是默认来到SpringBoot默认的错误提示页面；
 
-
+![image-20181025204820772](images/image-20181025204820772.png)
 
 #### 	2）、如何定制错误的json数据；
 
