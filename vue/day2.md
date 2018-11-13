@@ -713,7 +713,7 @@ Vue.elementDirective('red-color', {
 
 
 
-# 4、[vue-resource 实现 get, post, jsonp请求](https://github.com/pagekit/vue-resource)
+# 10、[vue-resource 实现 get, post, jsonp请求](https://github.com/pagekit/vue-resource)
 
 除了 vue-resource 之外，还可以使用 `axios` 的第三方包实现实现数据的请求
 
@@ -833,15 +833,33 @@ jsonpInfo() { // JSONP形式从服务器获取数据
 
 ### 添加品牌数据
 
+![1542118673680](assets/1542118673680.png)
+
+
+
 ### 删除品牌数据
 
-## [Vue中的动画](https://cn.vuejs.org/v2/guide/transitions.html)
+![1542118760580](assets/1542118760580.png)
+
+### 全局配置数据接口根域名
+
+![1542119098892](assets/1542119098892.png)
+
+
+
+# 11、[Vue中的动画](https://cn.vuejs.org/v2/guide/transitions.html)
 
 为什么要有动画：动画能够提高用户的体验，帮助用户更好的理解页面中的功能；
 
-### 使用过渡类名
+![1542119390910](assets/1542119390910.png)
 
-1. HTML结构：
+
+
+## 11.1、使用过渡类名
+
+1. ### HTML结构：
+
+![1542119758487](assets/1542119758487.png)
 
 ```
 <div id="app">
@@ -853,7 +871,7 @@ jsonpInfo() { // JSONP形式从服务器获取数据
   </div>
 ```
 
-1. VM 实例：
+1. ### VM 实例：
 
 ```
 // 创建 Vue 实例，得到 ViewModel
@@ -870,7 +888,13 @@ var vm = new Vue({
 });
 ```
 
-1. 定义两组类样式：
+1. ### 定义两组类样式：
+
+![1542119899369](assets/1542119899369.png)
+
+![1542119989227](assets/1542119989227.png)
+
+
 
 ```
 /* 定义进入和离开时候的过渡状态 */
@@ -888,7 +912,15 @@ var vm = new Vue({
     }
 ```
 
-### [使用第三方 CSS 动画库](https://cn.vuejs.org/v2/guide/transitions.html#自定义过渡类名)
+### 修改v-前缀
+
+![1542120107141](assets/1542120107141.png)
+
+![1542120126008](assets/1542120126008.png)
+
+
+
+## 11.2、[使用第三方 CSS 动画库](https://cn.vuejs.org/v2/guide/transitions.html#自定义过渡类名)
 
 1. 导入动画类库：
 
@@ -907,9 +939,29 @@ var vm = new Vue({
 </transition>
 ```
 
-### 使用动画钩子函数
+![1542120249250](assets/1542120249250.png)
+
+![1542120277408](assets/1542120277408.png)
+
+### animated bounceIn组合使用
+
+![1542120316043](assets/1542120316043.png)
+
+### 指定入场、出场时长
+
+![1542120390575](assets/1542120390575.png)
+
+### 分别配置入场、离场时间
+
+![1542120434565](assets/1542120434565.png)
+
+## 11.3、使用动画钩子函数实现半场动画
 
 1. 定义 transition 组件以及三个钩子函数：
+
+![1542120594550](assets/1542120594550.png)
+
+
 
 ```
 <div id="app">
@@ -949,7 +1001,25 @@ methods: {
     }
 ```
 
-### [v-for 的列表过渡](https://cn.vuejs.org/v2/guide/transitions.html#列表的进入和离开过渡)
+![1542120787710](assets/1542120787710.png)
+
+![1542120875967](assets/1542120875967.png)
+
+![1542120966521](assets/1542120966521.png)
+
+![1542121014382](assets/1542121014382.png)
+
+![1542121099509](assets/1542121099509.png)
+
+![1542121137401](assets/1542121137401.png)
+
+![1542121156146](assets/1542121156146.png)
+
+
+
+
+
+## 11.4、[v-for 的列表过渡](https://cn.vuejs.org/v2/guide/transitions.html#列表的进入和离开过渡)
 
 1. 定义过渡样式：
 
@@ -968,7 +1038,9 @@ methods: {
 </style>
 ```
 
-1. 定义DOM结构，其中，需要使用 transition-group 组件把v-for循环的列表包裹起来：
+1. 定义DOM结构，其中，需要使用 **transition-group** 组件把v-for循环的列表包裹起来：
+
+![1542121553897](assets/1542121553897.png)
 
 ```
   <div id="app">
@@ -999,7 +1071,13 @@ methods: {
     });
 ```
 
-### 列表的排序过渡
+### 删除
+
+![1542121697405](assets/1542121697405.png)
+
+
+
+## 11.4、列表的排序过渡
 
 `<transition-group>` 组件还有一个特殊之处。不仅可以进入和离开动画，**还可以改变定位**。要使用这个新功能只需了解新增的 `v-move` 特性，**它会在元素的改变定位的过程中应用**。
 
@@ -1013,6 +1091,16 @@ methods: {
   position: absolute;
 }
 ```
+
+## 11.5、入场动画
+
+![1542121776256](assets/1542121776256.png)
+
+## 11.6、transition-group的tag标签
+
+![1542121892242](assets/1542121892242.png)
+
+![1542121935568](assets/1542121935568.png)
 
 
 
