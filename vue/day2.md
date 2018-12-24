@@ -174,7 +174,7 @@ search(name) {
 
 ![1542033115406](assets/1542033115406.png)
 
-## 3.3、常用函数
+## 3.3、常用Array函数
 
 ### 3.3.1、forEach
 
@@ -186,7 +186,7 @@ search(name) {
 
 通过返回true停止遍历
 
-### 3.3.3、filter
+### 3.3.3、filter过滤器（得到新数据）
 
 进行过滤，得到新数组
 
@@ -209,6 +209,18 @@ search(name) {
 ![1542034591027](assets/1542034591027.png)
 
 ![1542034650660](assets/1542034650660.png)
+
+
+
+### 3.3.8、删除找到的数据Array.splice(index,length)
+
+> Array.splice(index,length)
+
+![1542029412965](assets/1542029412965.png)
+
+### 
+
+
 
 
 
@@ -250,7 +262,7 @@ search(name) {
 
 
 
-# 5filter(只可在插值和v-bind表达式中使用)
+# 5、filter(只可在插值和v-bind表达式中使用)
 
 > 概念：Vue.js 允许你自定义过滤器，**可被用作一些常见的文本格式化**。
 >
@@ -355,7 +367,7 @@ Vue.filter('dataFormat', function (input, pattern = '') {
 
 ![1542033707871](assets/1542033707871.png)
 
-5.4、传递多个参数
+## 5.4、传递多个参数
 
 ![1542033746774](assets/1542033746774.png)
 
